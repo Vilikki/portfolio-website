@@ -710,3 +710,48 @@ h3.my-profession {
     height: 50px;
     padding: 0 50px;
 }
+
+
+/* responsive */
+@media (max-width:1199px) {
+    .aside {
+        left: -270px;
+    }
+    .main-content {
+        padding-left: 0;
+    }
+    .about .about-content .personal-info .info-item p span {
+        display: block;   
+        margin-left: 0;
+    }
+}
+
+@media (max-width:991px) {
+    .home .home-info {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .home-img {
+        display: none;
+    }
+
+    .service-item, .portfolio-item, .contact-info-item {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }    
+}
+
+@media (max-width:767px) {
+    .contact .contact-form .col-6,
+    .portfolio .portfolio-item,
+    .service .service-item,
+    .about .about-content .education,
+    .about .about-content .experience,
+    .about .about-content .skills,
+    .about .about-content .personal-info {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+}
