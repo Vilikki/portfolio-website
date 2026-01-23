@@ -5,3 +5,37 @@ var typed = new Typed(".typing", {
     BackSpeed:60,
     loop:true
 })
+
+
+/* change nav item color on click */
+const navLinks = document.querySelectorAll(".aside .nav li a");
+
+navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+    });
+})
+
+/* change menu color on scroll */
+const sections = document.querySelectorAll(".section");
+//const navLinks = document.querySelectorAll(".aside .nav li a");
+
+window.addEventListener("scroll", () => {
+    let currentId = "";
+
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 500 && rect.bottom > 100) {
+            currentId = section.id;
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+        const href = link.getAttribute("href");
+        if (href === "#" + currentId) {
+            link.classList.add("active");
+        }
+    });
+})
