@@ -1,5 +1,4 @@
 /* toggle style switcher */
-
 const styleSwitcherToggle = document.querySelector(".style-switcher-toggler");
 styleSwitcherToggle.addEventListener("click", () => {
     document.querySelector(".style-switcher").classList.toggle("open");
@@ -15,7 +14,6 @@ window.addEventListener("scroll", () => {
 
 
 /* theme colors */
-
 const alternateStyles = document.querySelectorAll(".alternate-style");
 
 function setActiveStyle(color) {
@@ -30,7 +28,7 @@ function setActiveStyle(color) {
 }
 
 
-/* dark / light mode */
+/* dark|light mode */
 const dayNight = document.querySelector(".day-night");
 
 dayNight.addEventListener("click", () => {
