@@ -59,3 +59,29 @@ async function loadProject(projectName) {
     }
     
 }
+
+/* Image sizing */
+document.getElementById('content-area').addEventListener('click', (e) => {
+    if (e.target.tagName === 'IMG') {
+        const modal = document.getElementById('image-modal');
+        const modalImg = document.getElementById('full-image');
+
+        modal.style.display = "flex";
+        modalImg.src = e.target.src;
+    }
+});
+
+const modal = document.getElementById('image-modal');
+const closeBtn = document.querySelector('.close');
+
+closeBtn.onclick = () => modal.style.display = "none";
+
+window.onclick = (e) => {
+    if (e.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+document.querySelector('.close').onclick = () => {
+    modal.style.display = "none";
+}
