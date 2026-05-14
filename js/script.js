@@ -39,3 +39,23 @@ window.addEventListener("scroll", () => {
         }
     });
 })
+
+/*  Dynamic project loading */
+async function loadProject(projectName) {
+    const contentArea = document.getElementById('content-area');
+    const displaySection = document.getElementById('project-display');
+
+    try {
+        console.log(projectName)
+        const response = await fetch(`./projects/${projectName}.html`);
+        const html = await response.text();
+
+        contentArea.innerHTML = html;
+
+        displaySection.scrollIntoView({behavior: 'smooth'});
+    } catch (error) {
+        console.log('Error loading project: ',error);
+        contentArea.innerHTML = "<p>There was a problem loading the selected project.</p>";
+    }
+    
+}
