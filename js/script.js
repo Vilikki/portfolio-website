@@ -61,18 +61,42 @@ async function loadProject(projectName) {
 }
 
 /* Image sizing */
+// document.getElementById('content-area').addEventListener('click', (e) => {
+//     if (e.target.tagName === 'IMG') {
+//         const modal = document.getElementById('image-modal');
+//         const modalImg = document.getElementById('full-image');
+
+//         modal.style.display = "flex";
+//         modalImg.src = e.target.src;
+//     }
+// });
+
+const closeBtn = document.querySelector('.close');
+const modal = document.getElementById('image-modal');
+let currentImages = [];
+let currentIndex = 0;
+
 document.getElementById('content-area').addEventListener('click', (e) => {
     if (e.target.tagName === 'IMG') {
-        const modal = document.getElementById('image-modal');
-        const modalImg = document.getElementById('full-image');
-
-        modal.style.display = "flex";
-        modalImg.src = e.target.src;
+        const gallery = e.target.closest('.project-gallery');
+        
+        currentImages = Array.from(gallery.querySelectorAll('img'));
+        currentIndex = currentImages.indexOf(e.target);
+        
+        showImage();
     }
 });
 
-const modal = document.getElementById('image-modal');
-const closeBtn = document.querySelector('.close');
+document.querySelector('.next').onclick = () => {
+    currentIndex = (currentIndex + 1) % currentImages.length; // Loop to start
+    showImage();
+};
+
+document.querySelector('.prev').onclick = () => {
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length; // Loop to end
+    showImage();
+};
+
 
 closeBtn.onclick = () => modal.style.display = "none";
 
@@ -83,5 +107,24 @@ window.onclick = (e) => {
 }
 
 document.querySelector('.close').onclick = () => {
-    modal.style.display = "none";
+        modal.style.display = "none";
 }
+
+document.onkeydown = function(e) {
+    if (document.getElementById('image-modal').style.display === "flex") {
+        if (e.key === "ArrowLeft") document.querySelector('.prev').click();
+        if (e.key === "ArrowRight") document.querySelector('.next').click();
+        if (e.key === "Escape") document.querySelector('.close').click();
+    }
+};
+
+function showImage() {
+        const modal = document.getElementById('image-modal');
+        const modalImg = document.getElementById('full-image');
+        const captionText = document.getElementById('caption');    
+        
+        modal.style.display = "flex";
+        modalImg.src = currentImages[currentIndex].src;
+    
+        captionText.innerHTML = currentImages[currentIndex].alt || "Project screenshot";
+    }
