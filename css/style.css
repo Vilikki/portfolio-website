@@ -43,6 +43,9 @@ ul {
     list-style: none;
 }
 
+.link:visited {
+    color: var(--skin-color)
+}
 .bulleted {
     margin-left: 16px;
     padding-bottom: 16px;;
@@ -363,6 +366,11 @@ h3.my-profession {
     max-width: 100%;
 }
 
+.about h3 {
+    margin-bottom: 32px;
+    text-align: start;
+}
+
 .about .about-content .about-text {
     flex: 0 0 100%;
     max-width: 100%;
@@ -449,7 +457,7 @@ h3.my-profession {
     position: relative;
 }
 
-.about .about-content .skills .skill-item .progress, .usage-in { 
+.about .about-content .skills .skill-item .progress-in, .usage-in { 
     position: absolute;
     left: 0;
     top: 0;
@@ -782,8 +790,8 @@ h3.my-profession {
 }
 
 .contact-info-item {
-    flex: 0 0 25%;
-    max-width: 25%;
+    flex: 0 0 33%;
+    max-width: 33%;
     text-align: center;
     margin-bottom: 60px;
 }
