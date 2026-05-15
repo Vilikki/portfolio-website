@@ -19,7 +19,6 @@ navLinks.forEach(link => {
 
 /* change menu color on scroll */
 const sections = document.querySelectorAll(".section");
-//const navLinks = document.querySelectorAll(".aside .nav li a");
 
 window.addEventListener("scroll", () => {
     let currentId = "";
@@ -59,17 +58,6 @@ async function loadProject(projectName) {
     }
     
 }
-
-/* Image sizing */
-// document.getElementById('content-area').addEventListener('click', (e) => {
-//     if (e.target.tagName === 'IMG') {
-//         const modal = document.getElementById('image-modal');
-//         const modalImg = document.getElementById('full-image');
-
-//         modal.style.display = "flex";
-//         modalImg.src = e.target.src;
-//     }
-// });
 
 const closeBtn = document.querySelector('.close');
 const modal = document.getElementById('image-modal');
@@ -127,4 +115,6 @@ function showImage() {
         modalImg.src = currentImages[currentIndex].src;
     
         captionText.innerHTML = currentImages[currentIndex].alt || "Project screenshot";
-    }
+}
+
+
