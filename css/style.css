@@ -20,6 +20,8 @@ body.dark {
     --text-black-700:#e9e9e9;
 }
 body {
+    background-color: var(--bg-black-900);
+    color: var(--text-black-900);          
     line-height: 1.5;
     font-size: 16px;
     font-family: 'Poppins' sans-serif;
@@ -39,6 +41,17 @@ body {
 
 ul {
     list-style: none;
+}
+
+.bulleted {
+    margin-left: 16px;
+    padding-bottom: 16px;;
+    list-style: circle;
+}
+
+.featured {
+    font-size: 1.5rem;
+    text-decoration: underline;
 }
 
 .section {
@@ -372,7 +385,7 @@ h3.my-profession {
     color: var(--text-black-700)
 }
 
-.about .about-content .personal-info { 
+.about .about-content .personal-info, .project-info { 
     flex: 0 0 60%;
     max-width: 60%;
     margin-top: 40px;
@@ -408,13 +421,13 @@ h3.my-profession {
     margin-top: 10px;
 }
 
-.about .about-content .skills { 
+.about .about-content .skills, .stack { 
     flex: 0 0 40%;
     max-width: 40%;
     margin-top: 40px;
 }
 
-.about .about-content .skills .skill-item {
+.about .about-content .skills .skill-item, .stack-item {
     flex: 0 0 100%;
     max-width: 100%;
     margin-bottom: 25px;
@@ -428,7 +441,7 @@ h3.my-profession {
     text-transform: capitalize;
 }
 
-.about .about-content .skills .skill-item .progress {
+.about .about-content .skills .skill-item .progress, .usage {
     background-color: var(--bg-black-50);
     height: 7px;
     border-radius: 4px;
@@ -436,7 +449,7 @@ h3.my-profession {
     position: relative;
 }
 
-.about .about-content .skills .skill-item .progress .progress-in { 
+.about .about-content .skills .skill-item .progress, .usage-in { 
     position: absolute;
     left: 0;
     top: 0;
@@ -445,7 +458,7 @@ h3.my-profession {
     background-color: var(--skin-color);
 }
 
-.about .about-content .skills .skill-item .skill-percent { 
+.about .about-content .skills .skill-item .skill-percent, .usage-percent { 
     position: absolute;
     right: 0;
     color: var(--text-black-900);
@@ -635,6 +648,121 @@ h3.my-profession {
 .portfolio-img img {
     width: 100%;
     display: block;
+}
+
+.portfolio button {
+    margin-top: 20px;
+    width: 100%;
+} 
+
+.portfolio h3, h3 {
+    text-align: center;
+    margin: 10px;
+}
+
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 3px solid var(--bg-black-100);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* modal */
+
+.modal {
+    display: none; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.9); 
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    object-fit: contain;
+    max-width: 80%;
+    max-height: 80%;
+    margin-top: 5%;
+    margin-bottom: 20px;
+}
+
+#captain {
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    color: var(--text-black-700);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.close {
+    position: absolute;
+    top: 20px; right: 35px;
+    color: white; font-size: 40px; cursor: pointer;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    transition: 0.6s ease;
+    user-select: none;
+}
+
+.next { 
+    right: 0; 
+    border-radius: 3px 0 0 3px; 
+}
+
+.prev { 
+    left: 0; 
+    border-radius: 0 3px 3px 0; 
+}
+
+.prev:hover, .next:hover { 
+    background-color: rgba(0, 0, 0, 0.8); 
+}
+
+/* Caption Text */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
 }
 
 /* contact */
