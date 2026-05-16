@@ -286,6 +286,10 @@ ul {
     margin-right: 15px;
 }
 
+.contact-me {
+    margin-top: 50px !important;
+}
+
 /* Home */
 .home {
     min-height: 100vh;
@@ -421,7 +425,7 @@ h3.my-profession {
 
 
 .about .about-content .personal-info .buttons {
-    margin-top: 30; 
+    margin-top: 100; 
 }
 
 .about .about-content .personal-info .buttons .btn {
