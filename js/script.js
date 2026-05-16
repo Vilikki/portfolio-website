@@ -39,6 +39,7 @@ window.addEventListener("scroll", () => {
     });
 })
 
+
 /*  Dynamic project loading */
 async function loadProject(projectName) {
     const contentArea = document.getElementById('content-area');
